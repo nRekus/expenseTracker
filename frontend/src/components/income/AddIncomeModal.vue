@@ -1,11 +1,12 @@
 <template>
-    <div v-if="visible">
+    <!-- <div v-if="visible">
 <input type="text" name="name" id="name" v-model="income.name">
 <input type="text" name="amount" id="amount" v-model="income.amount">
 <select name="categories" id="incomeCategory"></select>
 <input type="date" name="incomeDate" id="incomeDate" v-model="income.date">
 <button>Add Income</button>
-</div>
+</div> -->
+<h4>IncomeModal</h4>
 </template>
 
 <script>
@@ -21,12 +22,12 @@ export default{
             }
         }
     },
-    props:{
-        visible:{
-            type:Boolean,
-            required:true
-        }
-    }
+    // props:{
+    //     visible:{
+    //         type:Boolean,
+    //         required:true
+    //     }
+    // }
     
 
 }

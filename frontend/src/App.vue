@@ -2,11 +2,22 @@
 import AddCategoryModal from './components/category/AddCategoryModal.vue';
 import AddIncomeModal from './components/income/AddIncomeModal.vue';
 import IncomesList from './components/income/IncomesList.vue';
-
+import ExpenseList from './components/expenses/ExpenseList.vue';
+import {BButton} from 'bootstrap-vue-next/components/BButton';
+import {BCol} from 'bootstrap-vue-next/components/BCol';
+import {BRow} from 'bootstrap-vue-next/components/BRow';
+import {BContainer} from 'bootstrap-vue-next/components/BContainer';
+import {BModal} from 'bootstrap-vue-next/components/BModal';
 </script>
 
 <script>
 export default{
+  components:{
+    AddCategoryModal,
+    AddIncomeModal,
+    IncomesList,
+    ExpenseList
+  },
   data(){
     return{
       visible_category:false,
@@ -17,22 +28,34 @@ export default{
 </script>
 
 <template>
-  <AddCategoryModal :visible="visible_category"/>
-  <button @click="() => {visible_category = !visible_category}"> Add New Category </button>
-  <br>
-  <AddIncomeModal :visible="visible_income"/>
-  <button @click="()=>{visible_income = !visible_income}">Add New Income</button>
-  <br>
-  <IncomesList/>
+  
+  <BContainer>
+    <BRow>
+      <BCol><IncomesList/></BCol>
+      <BCol><ExpenseList/></BCol>
+    </BRow>
+
+    <BRow>
+    <BCol>
+      <AddCategoryModal v-model="visible_category"/>
+      <BButton class="addModalButton" @click="visible_category=!visible_category">+</BButton>
+    </BCol>
+      <!-- <BCol><AddIncomeModal v-model="visible_income"/>
+  <BButton @click="visible_income!=visible_income">Add New Income</BButton>
+    </BCol> -->
+    </BRow>
+  </BContainer>
 </template>
 
 <style scoped>
-#ytvideo{
-  height: 320px;
-  width: 480px;
-  float: none;
-  clear:both;
-  margin: 2px auto;
-  align-self: center;
+.addModalButton{
+  border: none;
+  padding: 5px 10px 10px 10px;
+  border-radius: 100%;
+  background-color: black;
+  height: 45px;
+  width: 45px;
+  color: white;
+  font-weight: 24px;
 }
 </style>

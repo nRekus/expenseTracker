@@ -1,26 +1,35 @@
 <template>
-    <BModal 
-        v-model="local_vis",
-        title="Add new Category">
+    <div v-if="modelValue">
+    <BModal
+        :model-value="modelValue"
+        @update:model-value="$emit('update:modelValue',$event)"
+        >Hello Wrld
     </BModal>
+    </div>
 </template>
 
 <script>
 import { postNewIncome } from '@/services/incomeService.js';
-    export default{
+import { BModal } from 'bootstrap-vue-next';
+export default{
+    components:{
+        BModal
+    },
         props:{
-            visible:{
+            modelValue:{
                 type:Boolean,
+                default:false,
                 required:true
             }
         },
+        emits:['update:modelValue'],
         data(){
             return{
                 categroy:{
                     categoryName:'',
                     color:'red'
                 },
-                local_vis:this.$props.visible
+
             }
         },        
     }
