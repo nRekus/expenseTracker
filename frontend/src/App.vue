@@ -40,9 +40,10 @@ export default{
       <AddCategoryModal v-model="visible_category"/>
       <BButton class="addModalButton" @click="visible_category=!visible_category">+</BButton>
     </BCol>
-      <!-- <BCol><AddIncomeModal v-model="visible_income"/>
-  <BButton @click="visible_income!=visible_income">Add New Income</BButton>
-    </BCol> -->
+      <BCol>
+        <AddIncomeModal v-model="visible_income"/>
+  <BButton class="addModalButton" @click="visible_income=!visible_income">+</BButton>
+    </BCol>
     </BRow>
   </BContainer>
 </template>
