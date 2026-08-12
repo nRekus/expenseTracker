@@ -1,7 +1,7 @@
-
+const apiUrl = "/api/income"
 export async function postNewIncome(income){
                 console.log(this.income);
-                const response = await fetch("/income",{
+                const response = await fetch(apiUrl,{
                     method:'POST',
                     headers:{
                         'Content-Type':'application/json'
@@ -12,10 +12,27 @@ export async function postNewIncome(income){
 
 export async function getAllIncomes(){
     try {
-        const response = await fetch("/api/income");
+        const response = await fetch(apiUrl);
         const result = await response.json();
         return result;
     } catch (error) {
         console.error("Something went wrong while gathering all Incomes");
+    }
+}
+
+export async function updateIncome(income) {
+    try {
+        const response = await fetch(apiUrl+`/${income.id}`,
+            {
+                method:'PUT',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(income)
+            }
+        )
+    console.log("Income Updated")
+    } catch (error) {
+        console.error(`Was not able to update Income with ID: ${income.id}`)
     }
 }
