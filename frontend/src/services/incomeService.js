@@ -12,10 +12,10 @@ export async function postNewIncome(income){
 
 export async function getAllIncomes(){
     try {
-        const response = await fetch("/income")
-        const result = await response.json()
-        console.log(result)
+        const response = await fetch("/api/income");
+        const result = await response.json();
+        return result;
     } catch (error) {
-        console.error("Something went wrong while gathering all Incomes")
+        console.error("Something went wrong while gathering all Incomes");
     }
 }

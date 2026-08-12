@@ -7,13 +7,13 @@
             <th>Kategorie</th>
         </tr>
     </thead>
-    <tbody v-for="inc in income">
-        <IncomesListItem :income="inc" />
+    <tbody>
+        <IncomesListItem v-for="inc in income" :income="inc" />
     </tbody>
     <tfoot>
         <tr>
             <th scope="row">Gesamteinkommen:</th>
-            <td>{{this.income.reduce((e,v) => e+v.amount,0)}}€</td>
+            <!-- <td v-if="income">{{this.income.reduce((e,v) => e+v.amount,0)}}€</td> -->
         </tr>
     </tfoot>
 </table>
@@ -21,29 +21,18 @@
 
 <script>
 import IncomesListItem from './IncomesListItem.vue';
-
+import { getAllIncomes } from '../../services/incomeService.js';
 export default{
     components:{
         IncomesListItem
     },
     data(){
         return{
-            income:[{
-                amount:12,
-                incomeCategory:{
-                    color:'red',
-                    categoryName:'9to5'
-                },
-                name:'Main Job'
-            },{
-                amount:12,
-                incomeCategory:{
-                    color:'red',
-                    categoryName:'9to5'
-                },
-                name:'Main Job'
-            }]
+            income:[]
         }
-    }
+    },
+    async created(){
+        this.income = await getAllIncomes() 
+    },
 }
 </script>

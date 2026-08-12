@@ -3,7 +3,11 @@
     <BModal
         :model-value="modelValue"
         @update:model-value="$emit('update:modelValue',$event)"
-        >Hello Wrld
+        >
+        <div id="form-container">
+            <label>Kategoriebezeichnung: <input type="text"></label>
+            <label>Farbe: <input type="text" name="" id=""></label>
+        </div>
     </BModal>
     </div>
 </template>

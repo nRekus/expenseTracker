@@ -16,7 +16,11 @@ export default{
     AddCategoryModal,
     AddIncomeModal,
     IncomesList,
-    ExpenseList
+    ExpenseList,
+    BContainer,
+    BRow,
+    BCol,
+    BButton
   },
   data(){
     return{
