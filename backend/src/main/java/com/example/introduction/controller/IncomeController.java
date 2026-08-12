@@ -46,7 +46,7 @@ public class IncomeController {
 
     @PutMapping("/income/{id}")
     public ResponseEntity<Income> updateIncomeById(@RequestBody Income inc){
-        incomeService.updateIncomeById(inc);
+        incomeService.updateIncome(inc);
         return new ResponseEntity<Income>(HttpStatus.OK);
     }
 

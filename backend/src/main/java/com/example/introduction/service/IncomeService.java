@@ -9,5 +9,6 @@ public interface IncomeService {
     void save(Income income);
     Income findById(Long id);
     void deleteById(Long id);
+    void updateIncome(Income inc);
     void updateIncomeById(Income inc);
 }

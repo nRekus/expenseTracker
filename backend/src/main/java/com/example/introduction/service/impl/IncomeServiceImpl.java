@@ -40,16 +40,21 @@ public class IncomeServiceImpl implements IncomeService{
     public void deleteById(Long id) {
         incomeRepo.deleteById(id);
     }
+    
+    @Override
+    public void updateIncome(Income inc){
+        save(inc);
+    }
 
     @Override
     public void updateIncomeById(Income inc) {
-        Optional<Income> oldIncome = incomeRepo.findById(inc.getId());
-        oldIncome.ifPresent(x -> updateIncome(x,inc));
-        incomeRepo.save(oldIncome.get());
-        
+        // Optional<Income> oldIncome = incomeRepo.findById(inc.getId());
+        // oldIncome.ifPresentOrElse(x -> updateIncome(x,inc),"");
+        // incomeRepo.save(oldIncome.get());
+        save(inc);
     }
 
-    private void updateIncome(Income o,Income n){
+    private void updateIncome(Income o, Income n){
         o.setAmount(n.getAmount());
         o.setName(n.getName());
         o.setIncomeCategory(n.getIncomeCategory());
