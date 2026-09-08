@@ -36,3 +36,18 @@ export async function updateIncome(income) {
         console.error(`Was not able to update Income with ID: ${income.id}`)
     }
 }
+
+export async function deleteIncome(income) {
+    try {
+        const response = await fetch(apiUrl+`/${income.id}`,{
+            method:'DELETE',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(income)
+        })
+    } catch (error) {
+        console.error(`Was not able to delete Income with ID: ${income.id}`)
+    }
+    
+}

@@ -12,7 +12,7 @@
             <ExpenseListItem :expense="exp"/>
         </tbody>
         <tfoot><tr>
-            <th></th>
+            <th scope="row">Gesamtausgaben: </th>
             <td></td>
         </tr></tfoot>
     </table>

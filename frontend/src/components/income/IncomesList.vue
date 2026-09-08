@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th>Einkommensart</th>
-            <th>Menge</th>
+            <th>Menge (€)</th>
             <th>Kategorie</th>
         </tr>
     </thead>

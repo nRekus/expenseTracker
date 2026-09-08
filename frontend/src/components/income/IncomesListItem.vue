@@ -1,5 +1,5 @@
 <template>
-    <tr>
+    <tr @click="">
         <td>{{ income.name }}</td>
         <td>{{ income.amount}}€</td>
         <td>{{ income.incomeCategory.color }}</td>
@@ -8,6 +8,11 @@
 
 <script>
 export default{
-    props:['income']
+    props:['income'],
+    methods:{
+        updateIncomeModal(income){
+            
+        }
+    }
 }
 </script>
